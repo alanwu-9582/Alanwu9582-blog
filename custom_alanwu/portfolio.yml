@@ -1,0 +1,22 @@
+works:
+  text: 程式專案
+  data:
+    - name: AutoDrawingBot
+      link: https://github.com/alanwu-9582/AutoDrawingBot
+      description: 想要在你畫我猜之中畫出完美的圖像？那麼就讓 Auto Drawing Bot 來實現這個願望吧！
+      coverPath: <?=customDirPath?>/image/portfolioCover/AutoDrawingBot.jpg
+    - name: PictueToTxt
+      link: https://github.com/alanwu-9582/PictueToTxt/tree/main
+      description: 使用 Python 開發的圖像處理程式，可以將 PNG 圖像傳換為文字或是 ASCII 畫。
+      coverPath: <?=customDirPath?>/image/portfolioCover/PictueToTxt.jpg
+videos:
+  text: 遊戲影片
+  data:
+    - name: osu!
+      data:
+        - name: 2023 03 08 春待ちクローバー
+          iframeLink: https://www.youtube.com/embed/IFHwtupOA_s
+        - name: 2022 11 01 ヒトリゴト
+          iframeLink: https://www.youtube.com/embed/v4mKWyA2cmg
+        - name: 2022 10 13 指望遠鏡
+          iframeLink: https://www.youtube.com/embed/LD5LCvtvb3Q

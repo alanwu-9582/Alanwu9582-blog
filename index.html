@@ -1,20 +1,151 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="zh-TW" theme="dark">
 <head>
-    <title> uwu </title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+	<!-- Basic Meta Tag -->
+	<meta name="description" content="I love Izumi Sagiri." />
+	<meta name="robots" content="max-snippet:50, max-image-preview:standard, notranslate, noimageindex" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#3d3d3d" />
+	<!-- Open Graph Meta Tag -->
+	<meta property="og:url" content="https://alanwu-9582.github.io/Alanwu9582-blog" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Alanwu's Blog" />
+	<meta property="og:description" content="I love Izumi Sagiri." />
+	<meta property="og:image" content="data/siteCover.jpg" />
+	<meta property="og:locale" content="zh-TW" />
+	<!-- Google Meta Tag -->
+	<meta name="googlebot-news" content="none" />
+	<!--  Twitter Meta Tag -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@XxAlanXDxX" />
+	<meta name="twitter:creator" content="@XxAlanXDxX" />
+
+	<title>Alanwu's Blog</title>
+	<base target="_blank" rel="noreferrer noopener" />
+	<link rel="shortcut icon" href="custom_alanwu/image/configImage/icon.ico" type="image/templateIcon/x-icon" />
+	<link rel="shortcut icon" href="custom_alanwu/image/configImage/avatar.png" type="image/templateIcon/x-icon" />
+	<link rel="prefetch" href="data/md5.json" />
+	<link rel="prefetch" href="data/article.json" />
+	<link rel="prefetch" href="data/portfolio.json" />
+	<link id="mainCss" rel="stylesheet" href="public/style/prism-tomorrow.css" />
+	<link id="mainCss" rel="stylesheet" href="public/style/main.css" />
+	<link rel="stylesheet" href="public/style/clickEffect.css" />
+	<link rel="stylesheet" href="public/style/articleContent.css" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Alanwu's Blog" href=".rss" />
+	<script src="public/script/basic.js"></script>
+	<script src="public/script/clickAnimation.js"></script>
+	<script src="public/script/bgAnimation.js"></script>
+	<!-- <script src="public/script/net_npm_marked_marked.min.js"></script> -->
+	<script src="public/script/slides.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked-highlight/lib/index.umd.js"></script>
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css"> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dark.min.css"> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+	<script src="public/script/gl-matrix-min.js" data-nothing="image/configImage/grandmaster8787_mcskin.png"></script>
+	<script>
+		const TITLE = `Alanwu's Blog`;
+		if(globalThis.TITLE === undefined) globalThis.TITLE = 'Blog';
+		const CUSTOM_DIR_PATH = `custom_alanwu`;
+		const CATEGORY_COLORS = {
+			'scripting': {bright: `#c5d7c1`, dark: `#608857`}, 
+			'tools': {bright: `#c0cdd8`, dark: `#55738b`}, 
+			'tips': {bright: `#d6ccc2`, dark: `#846d58`}, 
+		};
+	</script>
 </head>
-
 <body>
-    <div class="circle">
-        <div>
-            <h1 id="time">00:00:00</h1>
-            <h2 id="date">Jan 01, 2000</h2>
-        </div>
-    </div>
-    <script src="script.js"></script>
+	<canvas id="bgAniCvs"></canvas>
+	<aside>
+		<div id="pageSwitcher">
+			<input type="radio" name="pageRadio" id="pageRadio-filter">
+			<label for="pageRadio-filter">Filter
+				<div class="page">
+					<h2>Archives</h2><div id="archiveButtons" class="buttons"><!-- <button>2023</button> --></div>
+					<h2>Categories</h2><div id="categoryButtons" class="buttons"><!-- <button>tutorial</button> --></div>
+					<h2>Tags</h2><div id="tagButtons" class="buttons"><!-- <button>c++</button> --></div>
+				</div>
+			</label>
+			<input type="radio" name="pageRadio" id="pageRadio-outline">
+			<label for="pageRadio-outline">Outline
+				<div class="page">
+					<!-- <ol>
+						<li>1. 問題</li>
+						<li>2. 解析</li>
+						<li>3. 解方
+							<ol>
+								<li>3-1. Map</li>
+								<li>3-2. WeakMap</li>
+							</ol>
+						</li>
+					</ol> -->
+				</div>
+			</label>
+		</div>
+		<div id="pages">
+			<div></div>
+		</div>
+		<button id="scrollToArticle"></button>
+	</aside>
+	<main>
+		<!-- <article class="closed">
+			<p class="category">tutorial</p>
+			<h1 class="title">JS用物件當鍵值</h1>
+			<p class="description">前些日子寫出的bug，直接把我搞到瘋掉</p>
+			<p class="info"><span class="publishedTime">Apr 16, 2023</span><span class="readingTime">2 minute read</span></p>
+		</article> -->
+	</main>
+	<footer>
+		<hr>
+		2023 © Alanwu's Blog<br />
+		<p>
+		Web designed by MaoHuPi<br />
+		Icon taken from Google Fonts
+		</p>
+	</footer>
+	<header>
+		<div id="avatarBox">
+			<img id="avatar" src="custom_alanwu/image/configImage/avatar.png" alt="site avatar" />
+			<div id="badges">
+				<div data-title="FRC軟體組成員">🦾</div>
+				<div data-title="Python、Java工程師">👨‍💻</div>
+				<div data-title=":P">👻</div>
+			</div>
+			<div id="badgeDescription"></div>
+		</div>
+		<h1 id="siteName">Alanwu's Blog</h1>
+		<p id="siteDescription">I love Izumi Sagiri.</p>
+		<ul id="tabs" style="--tabsAmount: 4; --switchesAmount: 3;">
+			<li id="tab-home" style="--bgi: url('../image/templateIcon/tabIcon-home.svg');"><a data-href="?page=home">Home</a></li>
+			<li id="tab-about" style="--bgi: url('../image/templateIcon/tabIcon-about.svg');" data-aboutPath="custom_alanwu/about.md"><a data-href="?page=about" rel="author me">About</a></li>
+			<li id="tab-articles" style="--bgi: url('../image/templateIcon/tabIcon-articles.svg');"><a data-href="?page=articles">Articles</a></li>
+			<li id="tab-portfolio" style="--bgi: url('../image/templateIcon/tabIcon-portfolio.svg');"><a data-href="?page=portfolio">Portfolio</a></li>
+			<div id="switches">
+				<div>
+					<li id="rssUrlCopy"><a>Copy RSS</a></li>
+					<li id="backgroundMusicSwitch" data-path="custom_alanwu/audio/休_奔.wav" data-volume="0.5"><a>BG Music</a></li>
+					<li id="darkModeSwitch"><a>Dark Mode</a></li>
+				</div>
+			</div>
+		</ul>
+		<nav></nav>
+	</header>
+	<canvas id="character" data-path="custom_alanwu/image/configImage/grandmaster8787_mcskin.png"></canvas>
+	<div id="slidesPlayer">
+		<div class="box"></div>
+		<div class="bar">
+			<div id="slidesThemeSelector"></div>
+			<div id="slidesControlButtons">
+				<button id="slidesButton-fullScreen" style="--bgi: url('../image/templateIcon/slides-fullScreen.svg');"></button>
+				<button id="slidesButton-close" style="--bgi: url('../image/templateIcon/slides-close.svg');"></button>
+			</div>
+		</div>
+	</div>
+	<div id="effects"></div>
+	<script src="public/script/loadData.js"></script>
+	<script src="public/script/main.js"></script>
+	<script src="public/script/character.js" data-nothing="image/configImage/grandmaster8787_mcskin.png"></script>
 </body>
-
 </html>

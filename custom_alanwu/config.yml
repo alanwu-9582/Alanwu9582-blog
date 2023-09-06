@@ -1,0 +1,75 @@
+title: Alanwu's Blog
+owner: Alanwu
+description: I love Izumi Sagiri.
+language: zh-TW
+timeZone: +0800
+timeFormat: '%Y/%m/%d'
+siteUrl: https://alanwu-9582.github.io/Alanwu9582-blog
+
+twitter:
+  site: '@XxAlanXDxX'
+  creator: '@XxAlanXDxX'
+#! liker:
+#!   account: likerAccount
+
+iconPath: 
+  ico: image/configImage/icon.ico
+  png: image/configImage/avatar.png
+
+avatarPath: image/configImage/avatar.png
+
+badges:
+  - icon: 🦾
+    message: FRC軟體組成員
+  - icon: 👨‍💻
+    message: Python、Java工程師
+  - icon: 👻
+    message: :P
+
+tabs:
+  home: 
+    text: Home
+  about:
+    text: About
+    path: about.md
+  articles: 
+    text: Articles
+  portfolio: 
+    text: Portfolio
+tabsAmount: 4
+
+switches:
+  rssUrl: 
+    text: Copy RSS
+  backgroundMusic:
+    text: BG Music
+    path: audio/休_奔.wav
+    volume: 0.5
+  darkMode: 
+    text: Dark Mode
+switchesAmount: 3
+
+pages: 
+  filter:
+    text: Filter
+    archives: Archives
+    categories: Categories
+    tags: Tags
+  outline:
+    text: Outline
+
+category:
+  - name: scripting
+    color:
+      bright: '#c5d7c1'
+      dark: '#608857'
+  - name: tools
+    color:
+      bright: '#c0cdd8'
+      dark: '#55738b'
+  - name: tips
+    color:
+      bright: '#d6ccc2'
+      dark: '#846d58'
+    
+skinPath: image/configImage/grandmaster8787_mcskin.png
