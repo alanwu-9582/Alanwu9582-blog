@@ -189,7 +189,7 @@
 <div id="aboutContent">
 	<div id="glassBox" class="page" display="bothCenter" material="glass">
 		<div class="containBox">
-			<h2 id="title">Websites</h2>
+			<h1 id="title">Websites</h1>
 			<div class="cardBox" display="bothCenter">
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #ff7e7e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-youtube.png');" href="https://www.youtube.com/channel/UCSc8KKDgxmsa5xwY7FjEI0w">
 					<h3>YouTube</h3>

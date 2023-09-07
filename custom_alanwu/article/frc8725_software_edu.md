@@ -42,6 +42,6 @@ API Docs
 
 ![](/custom_alanwu/image/articleImage/frc8725_software_edu_image2.png)
 
-**<font color="#f00">請注意!!</font> 為了保護電腦的安全，務必在結束活動、使用完畢後，將防火牆設定用上述設定方式再度開啟。**
+**<font color="#f00">請注意!! 為了保護電腦的安全，務必在結束活動、使用完畢後，將防火牆設定用上述設定方式再度開啟。</font>**
 
 
