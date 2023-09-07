@@ -193,7 +193,7 @@
 			<div class="cardBox" display="bothCenter">
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #ff7e7e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-youtube.png');" href="https://www.youtube.com/channel/UCSc8KKDgxmsa5xwY7FjEI0w">
 					<h3>YouTube</h3>
-					<p contentkey="youtube-description">Alanwu的主頻道<br>以音遊影片為主。</p>
+					<p contentkey="youtube-description">Alanwu的主頻道，<br>以音遊影片為主。</p>
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #666666; --bgi: url('<?=basicPath?>/image/aboutImage/logo-github.png');" href="https://github.com/alanwu-9582">
 					<h3>Github</h3>
