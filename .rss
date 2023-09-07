@@ -12,7 +12,7 @@
 	<atom:link href="https://alanwu-9582.github.io/Alanwu9582-blog/.rss" rel="self" type="application/rss+xml" />
 	<link>https://alanwu-9582.github.io/Alanwu9582-blog</link>
 	<description>I love Izumi Sagiri.</description>
-	<lastBuildDate>Wed, 30 Aug 2023 00:00:00 +0800</lastBuildDate>
+	<lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0800</lastBuildDate>
 	<language>zh-TW</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -28,5 +28,6 @@
 	
 	<item><title>Mark Down語法測試</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=markdownTest</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Sat, 26 Aug 2023 00:00:00 +0800</pubDate><category><![CDATA[test]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=markdownTest</guid><description><![CDATA[就只是個測試]]></description></item>
 	<item><title>程式套色測試</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=codeTest</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Wed, 30 Aug 2023 00:00:00 +0800</pubDate><category><![CDATA[test]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=codeTest</guid><description><![CDATA[一樣只是個測試]]></description></item>
+	<item><title>[FRC8725] 軟體培訓教學</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=frc8725_software_edu</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Thu, 07 Sep 2023 00:00:00 +0800</pubDate><category><![CDATA[FRC]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=frc8725_software_edu</guid><description><![CDATA[教你如何讓機器人動起來]]></description></item>
 	</channel>
 </rss>
