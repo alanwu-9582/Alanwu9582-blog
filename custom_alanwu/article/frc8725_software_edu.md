@@ -3,7 +3,7 @@
 <!-- category: FRC -->
 <!-- tags: FRC -->
 <!-- published time: 2023/09/07 -->
-<!-- cover: <?=customDirPath?>/image/articleCover/00000006.jpg -->
+<!-- cover: <?=customDirPath?>/image/articleCover/frc8725_software_edu_cover.jpg -->
 
 
 # 安裝環境
@@ -36,11 +36,11 @@ API Docs
 3. 接著會進入下圖介面，上方有三個設定檔
 「網域設定檔、私人設定檔、公用設定檔」 將三個設定檔的「防火牆狀態」調整為關閉，三區皆調整完後按下「確定」
 
-![](https://hackmd.io/_uploads/S1r0ORrDn.png)
+![](.\image\articleImage\frc8725_software_edu_image1.png)
 
 4. 當畫面顯示改變如下即設定成功
 
-![](https://hackmd.io/_uploads/rkXm50rvn.png)
+![](.\image\articleImage\frc8725_software_edu_image2.png)
 
 **<font color="#f00">請注意!!</font> 為了保護電腦的安全，務必在結束活動、使用完畢後，將防火牆設定用上述設定方式再度開啟。**
 
