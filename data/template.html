@@ -22,6 +22,7 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="<?=twitter.site?>" />
 	<meta name="twitter:creator" content="<?=twitter.creator?>" />
+	<meta name="twitter:image" content="data/siteCover.jpg" />
 
 	<title><?=title?></title>
 	<base target="_blank" rel="noreferrer noopener" />
@@ -30,10 +31,10 @@
 	<link rel="prefetch" href="data/md5.json" />
 	<link rel="prefetch" href="data/article.json" />
 	<link rel="prefetch" href="data/portfolio.json" />
-	<link id="mainCss" rel="stylesheet" href="public/style/prism-tomorrow.css" />
 	<link id="mainCss" rel="stylesheet" href="public/style/main.css" />
 	<link rel="stylesheet" href="public/style/clickEffect.css" />
 	<link rel="stylesheet" href="public/style/articleContent.css" />
+	<link rel="stylesheet" href="<?=customDirPath?>/style/custom.css" />
 	<link rel="alternate" type="application/rss+xml" title="RSS Feed for <?=title?>" href=".rss" />
 	<script src="public/script/basic.js"></script>
 	<script src="public/script/clickAnimation.js"></script>
@@ -101,7 +102,7 @@
 		<hr>
 		2023 © <?=title?><br />
 		<p>
-		Web designed by MaoHuPi<br />
+		This template is made by <a href="https://maohupi.github.io">MaoHuPi</a><br />
 		Icon taken from Google Fonts
 		</p>
 	</footer>

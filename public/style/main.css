@@ -101,7 +101,7 @@ header {
 	top: 0px;
 	left: 0px;
 	background-color: var(--header-backgroundColor);
-	z-index: 3;
+	/* z-index: 3; */
 }
 header > * {
 	margin: 0px 0px 2vw 0px;
@@ -171,7 +171,7 @@ header > * {
 	border-radius: 0.5vw;
 	box-shadow: 0px 0px 5px 0px var(--shadowColor);
 	opacity: 0;
-	z-index: 999;
+	/* z-index: 999; */
 	pointer-events: none;
 	transition: opacity 0.5s;
 }
@@ -369,6 +369,7 @@ aside[visible] {
 	color: var(--text-color1);
 	font-size: 1.2vw;
 	font-weight: bold;
+	cursor: pointer;
 }
 #pageSwitcher .page li.now {
 	color: var(--text-color2);
@@ -404,7 +405,7 @@ main {
 	width: calc(100vw - var(--header-width) - var(--aside-width));
 	min-height: calc(100vh - var(--footer-height));
 	position: relative;
-	z-index: 1;
+	/* z-index: 1; */
 }
 aside:not([visible]) ~ main {
 	--mw: calc((100vw - var(--header-width) - 2vw)/100);
@@ -462,7 +463,7 @@ article > .category {
 	border-radius: 0.5vw;
 	box-shadow: 0px 0px 10px 0px var(--shadowColor);
 	transform: rotateZ(5deg);
-	z-index: 1;
+	/* z-index: 1; */
 	cursor: pointer !important;
 }
 article .title {
@@ -768,10 +769,15 @@ footer {
 	padding: 1vw;
 	width: calc(100vw - var(--header-width) - var(--aside-width));
 	height: var(--footer-height);
+	position: relative;
 	color: var(--text-color1);
 	font-size: 1.2vw;
 	font-weight: normal;
-	z-index: 2;
+	/* z-index: 2; */
+}
+footer a {
+	pointer-events: all;
+	cursor: pointer;
 }
 aside:not([visible]) ~ footer {
 	margin-right: 0px;
@@ -786,6 +792,10 @@ footer hr {
 footer p {
 	color: var(--text-color2);
 }
+footer p a {
+	color: var(--text-color2) !important;
+	pointer-events: all;
+}
 
 #slidesPlayer {
 	width: 100vw;
@@ -796,7 +806,7 @@ footer p {
 	background-color: black;
 	opacity: 0;
 	pointer-events: none;
-	z-index: 10;
+	/* z-index: 10; */
 	transition: opacity 1s;
 }
 #slidesPlayer[visible] {
@@ -1202,6 +1212,9 @@ article .likerFrame {
 #slidesPlayer .hljs-emphasis {
 	font-style: italic;
 }
+#slidesPlayer :where(.language-text, .language-txt) {
+	color: #dcdfe4 !important;
+}
 
 #effects {
 	width: 100vw;
@@ -1210,7 +1223,7 @@ article .likerFrame {
 	top: 0px;
 	left: 0px;
 	pointer-events: none;
-	z-index: 15;
+	/* z-index: 15; */
 }
 
 #bgAniCvs {
@@ -1219,7 +1232,7 @@ article .likerFrame {
 	position: fixed;
 	top: 0px;
 	left: 0px;
-	z-index: 0;
+	/* z-index: 0; */
 }
 
 #character {
@@ -1230,7 +1243,7 @@ article .likerFrame {
 	bottom: 2.5vw;
 	right: 0px;
 	pointer-events: none;
-	z-index: 4;
+	/* z-index: 4; */
 }
 
 @media screen and (max-width: 100vh) {

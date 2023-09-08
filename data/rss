@@ -9,7 +9,7 @@
 
 <channel>
 	<title><?=config.title?></title>
-	<atom:link href="<?=config.siteUrl?>/.rss" rel="self" type="application/rss+xml" />
+	<atom:link href="<?=config.siteUrl?>/rss" rel="self" type="application/rss+xml" />
 	<link><?=config.siteUrl?></link>
 	<description><?=config.description?></description>
 	<lastBuildDate><?=article.publishedTime.-1?></lastBuildDate>

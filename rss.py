@@ -11,7 +11,7 @@ def process(customDirPath, dataDirPath):
     print('--rss--')
     rssContent = []
 
-    templateFile = open(os.path.join(dataDirPath, '.rss'), 'r', encoding='utf-8')
+    templateFile = open(os.path.join(dataDirPath, 'rss'), 'r', encoding='utf-8')
     templateContent = templateFile.read()
     templateFile.close()
     templateContent = templateContent.replace('<?=customDirPath?>', customDirPath)
@@ -35,7 +35,7 @@ def process(customDirPath, dataDirPath):
 
     rssContent = basic.magicTagReplace(templateContent, dataContent, removeLineWhenMissingData=False)
         
-    outputFile = open('.rss', 'w+', encoding='utf-8')
+    outputFile = open('rss', 'w+', encoding='utf-8')
     outputFile.write(rssContent)
     outputFile.close()
 

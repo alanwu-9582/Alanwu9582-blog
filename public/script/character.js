@@ -61,7 +61,11 @@ function setProgram(gl){
     gl.useProgram(program);
     gl.enable(gl.DEPTH_TEST);
     gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.blendFunc(
+        gl.SRC_ALPHA, 
+        gl.ONE_MINUS_SRC_ALPHA, 
+        // gl.DST_COLOR, 
+    );
 
     if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
         console.error('Vertex shader compilation error:', gl.getShaderInfoLog(vertexShader));

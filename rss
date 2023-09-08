@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Alanwu's Blog</title>
+	<atom:link href="https://alanwu-9582.github.io/Alanwu9582-blog/rss" rel="self" type="application/rss+xml" />
+	<link>https://alanwu-9582.github.io/Alanwu9582-blog</link>
+	<description>I love Izumi Sagiri.</description>
+	<lastBuildDate>Wed, 30 Aug 2023 00:00:00 +0800</lastBuildDate>
+	<language>zh-TW</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://github.com/maohupi/blogTemplate_thread</generator>
+
+	<image>
+		<url>https://alanwu-9582.github.io/Alanwu9582-blog/public/image/logo_RSS_square_150x150.png</url>
+		<title>Alanwu's Blog</title>
+		<link>https://alanwu-9582.github.io/Alanwu9582-blog</link>
+		<width>32</width>
+		<height>32</height>
+	</image> 
+	
+	<item><title>[python]匯入別支的程式檔案</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000001</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Mon, 16 May 2022 00:00:00 +0800</pubDate><category><![CDATA[scripting]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000001</guid><description><![CDATA[]]></description></item>
+	<item><title>[python]匯入別支程式的特定內容</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000002</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Tue, 17 May 2022 00:00:00 +0800</pubDate><category><![CDATA[scripting]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000002</guid><description><![CDATA[]]></description></item>
+	<item><title>[python]匯入位於其它資料夾的程式</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000003</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Wed, 18 May 2022 00:00:00 +0800</pubDate><category><![CDATA[scripting]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000003</guid><description><![CDATA[]]></description></item>
+	<item><title>[python]import和__import__的差別</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000004</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Thu, 19 May 2022 00:00:00 +0800</pubDate><category><![CDATA[scripting]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000004</guid><description><![CDATA[]]></description></item>
+	<item><title>[python]動態載入模組、程式片段</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000005</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Fri, 20 May 2022 00:00:00 +0800</pubDate><category><![CDATA[scripting]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000005</guid><description><![CDATA[]]></description></item>
+	<item><title>[browser]瀏覽器擴充功能</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000006</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Sat, 21 May 2022 00:00:00 +0800</pubDate><category><![CDATA[tools]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000006</guid><description><![CDATA[]]></description></item>
+	<item><title>[browser]用空白鍵按按鈕</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000007</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Sun, 22 May 2022 00:00:00 +0800</pubDate><category><![CDATA[tips]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000007</guid><description><![CDATA[]]></description></item>
+	<item><title>[browser]分割PDF至以特定範圍</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000008</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Mon, 23 May 2022 00:00:00 +0800</pubDate><category><![CDATA[tools]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=00000008</guid><description><![CDATA[]]></description></item>
+	<item><title>Mark Down語法測試</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=markdownTest</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Sat, 26 Aug 2023 00:00:00 +0800</pubDate><category><![CDATA[test]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=markdownTest</guid><description><![CDATA[就只是個測試]]></description></item>
+	<item><title>程式套色測試</title><link>https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=codeTest</link><dc:creator><![CDATA[Alanwu]]></dc:creator><pubDate>Wed, 30 Aug 2023 00:00:00 +0800</pubDate><category><![CDATA[test]]></category><guid isPermaLink="true">https://alanwu-9582.github.io/Alanwu9582-blog?page=article&amp;article=codeTest</guid><description><![CDATA[一樣只是個測試]]></description></item>
+	</channel>
+</rss>

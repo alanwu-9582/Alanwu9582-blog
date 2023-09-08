@@ -153,10 +153,28 @@ article > .content pre.codeBlock {
     grid-template-columns: 5vw auto;
     margin: 2vw 0px;
 	width: 100%;
+	position: relative;
 	font-family: var(--code-font);
     font-size: 1.3vw;
     border-radius: 1vw;
 	overflow: hidden;
+}
+article > .content pre.codeBlock .copyCodeButton {
+	padding: 0.2vw 0.5vw;
+	position: absolute;
+    top: 0px;
+    right: 0px;
+	color: var(--text-color1);
+	font-size: 1.2vw;
+	background-color: var(--text-color4);
+    border-radius: 0px 0px 0px 0.5vw;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 0px 0px var(--text-color2);
+	user-select: none;
+	transition: box-shadow 0.5s;
+}
+article > .content pre.codeBlock .copyCodeButton:hover {
+	box-shadow: -5px 5px 0px 0px var(--text-color2);
 }
 article > .content pre.codeBlock code {
 	padding: 1vw;
@@ -202,6 +220,9 @@ article > .content .imageBox[data-alt]::after {
 }
 article > .content .imageBox[data-alt]:hover::after {
 	opacity: 1;
+}
+article > .content .imageBox[data-alt=""]:hover::after {
+	opacity: 0;
 }
 article > .content ol {
 }
@@ -373,6 +394,9 @@ article > .content .hljs-emphasis {
 article > .content .hljs-strong {
 	font-weight: 700;
 }
+article > .content :where(.language-text, .language-txt) {
+	color: #000000 !important;
+}
 html[theme="dark"] article > .content .hljs-mark{
 	color: #dcdfe4;
 }
@@ -496,6 +520,9 @@ html[theme="dark"] article > .content .hljs-meta .hljs-string {
 html[theme="dark"] article > .content .hljs-emphasis {
 	font-style: italic;
 }
+html[theme="dark"] article > .content :where(.language-text, .language-txt) {
+	color: #dcdfe4 !important;
+}
 
 @media screen and (max-width: 100vh) {
 	article > .content {
@@ -540,6 +567,15 @@ html[theme="dark"] article > .content .hljs-emphasis {
 		grid-template-columns: 15vw auto;
 		font-size: 4vw;
 		border-radius: 2.5vw;
+	}
+	article > .content pre.codeBlock .copyCodeButton {
+		padding: 1vw 2vw;
+		font-size: 2vw;
+		border-radius: 0px 0px 0px 2vw;
+		box-shadow: none;
+	}
+	article > .content pre.codeBlock .copyCodeButton:hover {
+		box-shadow: none;
 	}
 	article > .content pre.codeBlock code {
 		padding: 2.5vw;

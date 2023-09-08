@@ -16,6 +16,13 @@ marked = new marked.Marked(
 	})
 );
 
+function copyCodeContent(button){
+	navigator.clipboard.writeText(button.parentElement.querySelector('code.hljs').innerText).then(
+		() => {alert('Copied code content to clipboard.')}, 
+		() => {alert('Code content copy failed, unable to write to clipboard.')}
+	);
+}
+
 var dataLoaded = () => {};
 (() => {
 	const html = document.documentElement;
@@ -52,26 +59,43 @@ var dataLoaded = () => {};
 		else{
 			mdContent = mdContent.replace(/( |\n)# (.[^#]*)(#+)(?=($|\n))/g, '$1#$3 $2');
 			htmlContent = marked.parse(mdContent);
-			htmlContent = htmlContent.replace(/(<img.[^>]*alt="(.[^"]*)".[^>]*>)/g, '<div class="imageBox" data-alt="$2">$1</div>');
 			let container = $e('div');
 			container.innerHTML = htmlContent;
 			let noDeclareKeywords = ['if', 'else', 'elseif', 'elif', 'elsif', 'while', 'for', 'return', 'switch', 'case', 'when', 'default', 'try', 'catch', 'break', 'continue'];
-			$$('.hljs-keyword', container).forEach(element => {
+			$$('code.hljs .hljs-keyword', container).forEach(element => {
 				if(noDeclareKeywords.indexOf(element.innerText) > -1){
 					element.className += ' notDeclare_';
 				}
 			});
-			$$('*', container).filter(element => ['hljs-comment', 'hljs-string', 'hljs-regexp'].indexOf(element.className) === -1).map(element => [...element.childNodes]).flat().filter(node => node.tagName === undefined).forEach(node => {
+			$$('code.hljs *', container).filter(element => ['hljs-comment', 'hljs-string', 'hljs-regexp'].indexOf(element.className) === -1).map(element => [...element.childNodes]).flat().filter(node => node.tagName === undefined).forEach(node => {
 				var span = $e('span');
 				span.innerHTML = node.textContent.replace(/([()\[\]{}:;=+\-*/.,!<>|^&?%@~])/g, '<span class="hljs-mark">$1</span>');
 				node.parentElement.insertBefore(span, node);
 				node.remove();
 			});
 			$$('code.hljs', container).forEach(element => {
-				var lineNumber = $e('code');
+				var lineNumber = $e('code'), 
+					copyCodeButton = $e('button');
 				lineNumber.innerHTML = new Array(element.innerText.split('\n').length - 1).fill(0).map((v, i) => (i + 1).toString()).join('\n') || '';
 				element.parentElement.insertBefore(lineNumber, element);
+				copyCodeButton.className = 'copyCodeButton';
+				copyCodeButton.innerText = 'copy';
+				copyCodeButton.setAttribute('onclick', 'copyCodeContent(this);');
+				element.parentElement.appendChild(copyCodeButton);
 				element.parentElement.className += 'codeBlock';
+			});
+			$$('img', container).forEach(img => {
+				let imageBox = $e('div');
+				let imgAlt = img.getAttribute('alt');
+				imageBox.className = 'imageBox';
+				if(imgAlt !== undefined){
+					imageBox.setAttribute('data-alt', imgAlt);
+				}
+				else{
+					imageBox.setAttribute('data-alt', '');
+				}
+				img.after(imageBox);
+				imageBox.appendChild(img);
 			});
 			$$(':where([href], [src])', container).forEach(element => {
 				for(let attribute of ['href', 'src']){
@@ -165,7 +189,7 @@ var dataLoaded = () => {};
 	}
 	
 	$('#rssUrlCopy').addEventListener('click', () => {
-		navigator.clipboard.writeText(`${location.origin}${location.pathname.replace(/(\/|\\).[^\/\\]*\.html/g, '')}/.rss`).then(
+		navigator.clipboard.writeText(`${location.origin}${location.pathname.replace(/(\/|\\).[^\/\\]*\.html/g, '')}/rss`).then(
 			() => {alert('Copied RSS URL to clipboard.');}, 
 			() => {alert('RSS url copy failed, unable to write to clipboard.');}
 		);

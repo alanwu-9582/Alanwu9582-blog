@@ -46,7 +46,7 @@
 	#aboutContent .containBox{
 		padding: calc(4*var(--mw));
 		width: 100%;
-		height: 200%;
+		height: 100%;
 		box-sizing: border-box;
 	}
 	#aboutContent .cardBox {
@@ -189,13 +189,7 @@
 <div id="aboutContent">
 	<div id="glassBox" class="page" display="bothCenter" material="glass">
 		<div class="containBox">
-			<h1 id="title">Github stats</h1>
-			<div align="center">
-				<img src="https://github-readme-stats.vercel.app/api?username=alanwu-9582&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=onedark&locale=en&hide_border=true" height="100" alt="stats graph"  />
-				<img src="https://streak-stats.demolab.com?user=alanwu-9582&locale=en&mode=daily&theme=onedark&hide_border=true&border_radius=5" height="100" alt="streak graph"  />
-				<img src="https://github-readme-stats.vercel.app/api/top-langs?username=alanwu-9582&locale=en&hide_title=true&layout=compact&card_width=320&langs_count=5&theme=onedark&hide_border=true" height="100" alt="languages graph"  />
-			</div>
-			<h1 id="title">Websites</h1>
+			<h1 id="title">About Alanwu</h1>
 			<div class="cardBox" display="bothCenter">
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #ff7e7e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-youtube.png');" href="https://www.youtube.com/channel/UCSc8KKDgxmsa5xwY7FjEI0w">
 					<h3>YouTube</h3>

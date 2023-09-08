@@ -1,7 +1,7 @@
 import os
 import html, article, portfolio, rss, siteCover
 
-VERSION = 'v1.0.0'
+VERSION = 'v1.0.1'
 DESCRIPTION = '''
 --h, -help
 --v, -version
