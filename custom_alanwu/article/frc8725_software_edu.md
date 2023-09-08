@@ -33,11 +33,11 @@ API Docs
 3. 接著會進入下圖介面，上方有三個設定檔
 「網域設定檔、私人設定檔、公用設定檔」 將三個設定檔的「防火牆狀態」調整為關閉，三區皆調整完後按下「確定」
 
-![frc8725_software_edu_image1](image/articleImage/frc8725_software_edu_image1.wm)
+![frc8725_software_edu_image1](image/articleImage/frc8725_software_edu_image1.wm.png)
 
 4. 當畫面顯示改變如下即設定成功
 
-![frc8725_software_edu_image2](image/articleImage/frc8725_software_edu_image2.wm)
+![frc8725_software_edu_image2](image/articleImage/frc8725_software_edu_image2.wm.png)
 
 
 <font color="#e06c53">請注意!! 為了保護電腦的安全，務必在結束活動、使用完畢後，將防火牆設定用上述設定方式再度開啟。</font>
