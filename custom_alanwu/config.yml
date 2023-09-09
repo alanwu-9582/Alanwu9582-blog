@@ -10,7 +10,7 @@ twitter:
   site: '@XxAlanXDxX'
   creator: '@XxAlanXDxX'
 #! liker:
-#!   account: likerAccount
+#! account: likerAccount
 
 iconPath: 
   ico: image/configImage/icon.ico
@@ -20,9 +20,9 @@ avatarPath: image/configImage/avatar.png
 
 badges:
   - icon: 🦾
-    message: FRC軟體組成員
+    message: FRC軟體組副組長
   - icon: 👨‍💻
-    message: Python、Java工程師
+    message: Python、Java工程師?
   - icon: 👻
     message: :P
 
@@ -59,7 +59,7 @@ pages:
     text: Outline
 
 category:
-  - name: scripting
+  - name: programming
     color:
       bright: '#c5d7c1'
       dark: '#608857'

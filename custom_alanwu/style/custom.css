@@ -1,0 +1,14 @@
+:root {
+	--custom-linkColor: #326b9b;
+	--custom-strongColor: #383b43;
+}
+:root[theme="dark"] {
+	--custom-linkColor: #4ba3eb;
+	--custom-strongColor: #f5f7ff;
+}
+article > .content a {
+	color: var(--custom-linkColor);
+}
+/* article > .content strong {
+	color: var(--custom-strongColor);
+} */
