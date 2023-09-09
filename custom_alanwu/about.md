@@ -100,23 +100,23 @@
 
 	@keyframes sh0 {
 	0% {
-		transform: rotate(0deg) translate3d(0, 0, 0);
+		transform: rotate(0deg);
 	}
 
 	25% {
-		transform: rotate(7deg) translate3d(0, 0, 0);
+		transform: rotate(7deg);
 	}
 
 	50% {
-		transform: rotate(-7deg) translate3d(0, 0, 0);
+		transform: rotate(-7deg);
 	}
 
 	75% {
-		transform: rotate(1deg) translate3d(0, 0, 0);
+		transform: rotate(1deg);
 	}
 
 	100% {
-		transform: rotate(0deg) translate3d(0, 0, 0);
+		transform: rotate(0deg);
 	}
 	}
 
