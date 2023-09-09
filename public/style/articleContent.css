@@ -156,9 +156,10 @@ article > .content pre.codeBlock {
 	position: relative;
 	font-family: var(--code-font);
     font-size: 1.3vw;
-    border-radius: 1vw;
+    border-radius: 0.5vw;
 	overflow: hidden;
 }
+
 article > .content pre.codeBlock .copyCodeButton {
 	padding: 0.2vw 0.5vw;
 	position: absolute;
@@ -173,6 +174,7 @@ article > .content pre.codeBlock .copyCodeButton {
 	user-select: none;
 	transition: box-shadow 0.5s;
 }
+
 article > .content pre.codeBlock .copyCodeButton:hover {
 	box-shadow: -5px 5px 0px 0px var(--text-color2);
 }

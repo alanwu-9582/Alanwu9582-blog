@@ -67,7 +67,7 @@
 		flex-direction: column;
 		flex-wrap: nowrap;
 		align-content: center;
-		justify-content: flex-start;
+		justify-content: center;
 		align-items: center;
 		height: calc(var(--pageInnerHeight)*0.45);
 		width: calc(19.8*var(--mw));
@@ -116,14 +116,14 @@
 		filter: grayscale(0);
 	}
 	#aboutContent .cardBox > .card > h3 {
-		margin: calc(4*var(--mh)) calc(2*var(--mw)) 0px calc(2*var(--mw));
+		margin: calc(1*var(--mh)) calc(2*var(--mw));
 		color: black;
 		text-align: center;
 		font-size: calc(2.2*var(--mw));
 		font-weight: bold;
 	}
 	#aboutContent .cardBox > .card > p {
-		margin: calc(3*var(--mh)) calc(2*var(--mw)) 0px calc(2*var(--mw));
+		margin: calc(0.5*var(--mh)) calc(2*var(--mw));
 		color: black;
 		text-align: center;
 		font-size: calc(1.2*var(--mw));
@@ -158,7 +158,7 @@
 		width: var(--pageInnerWidth);
 		height: calc(var(--pageInnerHeight)*0.1);
 		color: var(--text-color1);
-		/* text-shadow: calc(2*var(--mw)) calc(2*var(--mw)) calc(1*var(--mw)) #00000088; */
+		text-shadow: calc(1*var(--mw)) calc(1*var(--mw)) calc(1*var(--mw)) #00000058;
 		font-size: calc(5*var(--mw));
 		font-family: 'Courier New', Courier, monospace;
 		text-align: center;
@@ -185,11 +185,8 @@
 		width: auto;
 		max-width: 30%;
 		height: 100%;
-		filter: brightness(2) grayscale(1);
+		filter: brightness(1.2) grayscale(0);
 		transition: filter 0.6s;
-	}
-	#aboutContent .statsCardBox > img:hover {
-		filter: brightness(1.5) grayscale(0);
 	}
 
 	@media screen and (max-width: 100vh) {
@@ -246,8 +243,80 @@
 		#aboutContent .statsCardBox > img {
 			margin: calc(1*var(--mw)) 0px;
 			width: 100%;
+			max-width: unset;
 			height: auto;
 			filter: brightness(1.5) grayscale(0);
+		}
+	}
+	@media screen and (min-width: 200vh) and (max-width: 300vh) {
+		#aboutContent #title {
+			width: calc(100% - 4*var(--mw)*2);
+			position: absolute;
+			top: 0px;
+			transform: translateY(-50%);
+		}
+		#aboutContent .statsCardBox {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			padding: 0px;
+			width: calc((100% - 4*var(--mw)*3)*0.2);
+			height: calc((100% - 4*var(--mw)*2)*0.9);
+			position: absolute;
+			bottom: calc(4*var(--mw));
+			left: calc(4*var(--mw));
+		}
+		#aboutContent .statsCardBox > img {
+			width: 100%;
+			max-width: unset;
+			height: auto;
+		}
+		#aboutContent .cardBox{
+			--gapX: 2%;
+			--gapY: 10%;
+			gap: var(--gapY) var(--gapX);
+			width: calc((100% - 4*var(--mw)*3)*0.8);
+			height: calc((100% - 4*var(--mw)*2)*0.9);
+			position: absolute;
+			bottom: calc(4*var(--mw));
+			right: calc(4*var(--mw));
+			box-sizing: border-box;
+		}
+		#aboutContent .cardBox > .card {
+			width: calc((100% - var(--gapX)*3)/4);
+			height: calc((100% - var(--gapY)*1)/2);
+		}
+		#aboutContent .cardBox > .card > p {
+			font-size: calc(1*var(--mw));
+		}
+	}
+	@media screen and (min-width: 300vh) {
+		#aboutContent #title {
+			width: calc(100% - 4*var(--mw)*2);
+			position: absolute;
+			top: 0px;
+			transform: translateY(-50%);
+		}
+		#aboutContent .statsCardBox {
+			display: none;
+		}
+		#aboutContent .cardBox{
+			--gapX: 2%;
+			--gapY: 10%;
+			gap: var(--gapY) var(--gapX);
+			width: calc(100% - 4*var(--mw)*2);
+			height: calc((100% - 4*var(--mw)*2)*0.9);
+			position: absolute;
+			bottom: calc(4*var(--mw));
+			right: calc(4*var(--mw));
+			box-sizing: border-box;
+		}
+		#aboutContent .cardBox > .card {
+			width: calc((100% - var(--gapX)*3)/4);
+			height: calc((100% - var(--gapY)*1)/2);
+		}
+		#aboutContent .cardBox > .card > p {
+			display: none;
 		}
 	}
 </style>
@@ -282,12 +351,12 @@
 					<p contentkey="spotify-description">聽眾帳號......嗯<br>對就是不會發歌的那種。</p>
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #666666; --bgi: url('<?=basicPath?>/image/aboutImage/logo-frc8725.png');" href="https://frc8725misty.blogspot.com/">
-					<h3>FRC8725</h3>
-					<p contentkey="frc8725-description">南山高中FRC TEAM <br>8725 Misty Panther</p>
+					<h3>FRC-8725</h3>
+					<p contentkey="github-description">南山高中 FRC Team <br>8725 Misty Panther</p>
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #fff27a; --bgi: url('<?=basicPath?>/image/aboutImage/logo-photos.png');" href="https://photos.google.com/?album=alanwu" onclick="event.preventDefault();window.open('https:\/\/youtu.be/dQw4w9WgXcQ?si=aiFtJ-IFWJuDlxDU', '_blank');">
 					<h3>Photos</h3>
-					<p contentkey="photos-description">放了一點照片</p>
+					<p contentkey="twitch-description">放了一些照片<br></p>
 				</a>
 				<!-- 再加按鈕就會被mcskin擋到 -->
 			</div>
