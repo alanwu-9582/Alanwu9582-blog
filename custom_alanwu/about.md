@@ -25,9 +25,9 @@
 		align-items: center;
 	}
 	#aboutContent [material="glass"] {
-		background-color: #ffffff55;
+		background-color: #ffffff30;
 		backdrop-filter: blur(calc(0.4*var(--mw)));
-		border-color: #aaaaaa55;
+		border-color: #aaaaaa00;
 		border-width: 2px;
 		border-style: solid;
 		border-radius: 20px;
@@ -84,13 +84,47 @@
 		transition-timing-function: cubic-bezier(0.6, -0.57, 0.26, 2.12);
 		overflow: hidden;
 	}
-	#aboutContent .cardBox > .card:hover {
-		/* border-color: #afafaf88; */
+	/* #aboutContent .cardBox > .card:hover {
+		border-color: #afafaf88;
 		border-color: var(--shadowColor);
 		box-shadow: calc(2*var(--mw)) calc(2*var(--mw)) calc(1*var(--mw)) 0px #00000088;
 		transform: translateY(-10px);
-		/* box-shadow: 0px 20px 5px 0px var(--shadowColor); */
+		box-shadow: 0px 20px 5px 0px var(--shadowColor);
+	} */
+
+	#aboutContent .cardBox > .card:hover {
+		animation: sh0 0.5s ease-in-out both;
+		border-color: var(--shadowColor);
+		transform: translateY(-10px);
 	}
+
+	@keyframes sh0 {
+	0% {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+
+	25% {
+		transform: rotate(7deg) translate3d(0, 0, 0);
+	}
+
+	50% {
+		transform: rotate(-7deg) translate3d(0, 0, 0);
+	}
+
+	75% {
+		transform: rotate(1deg) translate3d(0, 0, 0);
+	}
+
+	100% {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+	}
+
+	#aboutContent .cardBox > .card:hover span {
+		animation: storm 0.7s ease-in-out both;
+		animation-delay: 0.06s;
+	}
+
 	#aboutContent .cardBox > .card::before {
 		content: "";
 		position: absolute;
@@ -119,7 +153,7 @@
 		margin: calc(1*var(--mh)) calc(2*var(--mw));
 		color: black;
 		text-align: center;
-		font-size: calc(2.2*var(--mw));
+		font-size: calc(1.8*var(--mw));
 		font-weight: bold;
 	}
 	#aboutContent .cardBox > .card > p {
@@ -350,7 +384,7 @@
 					<h3>Spotify</h3>
 					<p contentkey="spotify-description">聽眾帳號......嗯<br>對就是不會發歌的那種。</p>
 				</a>
-				<a target="_blank" class="card hrefButton" style="--shadowColor: #666666; --bgi: url('<?=basicPath?>/image/aboutImage/logo-frc8725.png');" href="https://frc8725misty.blogspot.com/">
+				<a target="_blank" class="card hrefButton" style="--shadowColor: #ac5d1e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-frc8725.png');" href="https://frc8725misty.blogspot.com/">
 					<h3>FRC-8725</h3>
 					<p contentkey="github-description">南山高中 FRC Team <br>8725 Misty Panther</p>
 				</a>
