@@ -6,6 +6,19 @@
 
 'use strict';
 
+const alerts = $('#alerts');
+const pool_FloatAlert = [];
+function alert(content = '', type = 'compleat'){
+	// object pool
+	let usableFA = pool_FloatAlert.filter(FA => !FA.displayed)[0];
+	if(usableFA == undefined){
+		usableFA = new FloatAlert();
+		if(pool_FloatAlert.length < 5) pool_FloatAlert.push(usableFA);
+	}
+	[usableFA.content, usableFA.type] = [content, type];
+	alerts.appendChild(usableFA.display());
+}
+
 marked = new marked.Marked(
 	markedHighlight.markedHighlight({
 		langPrefix: 'hljs language-',
@@ -18,8 +31,8 @@ marked = new marked.Marked(
 
 function copyCodeContent(button){
 	navigator.clipboard.writeText(button.parentElement.querySelector('code.hljs').innerText).then(
-		() => {alert('Copied code content to clipboard.')}, 
-		() => {alert('Code content copy failed, unable to write to clipboard.')}
+		() => {alert('Copied code content to clipboard.', 'compleat')}, 
+		() => {alert('Code content copy failed, unable to write to clipboard.', 'error')}
 	);
 }
 
@@ -67,9 +80,9 @@ var dataLoaded = () => {};
 					element.className += ' notDeclare_';
 				}
 			});
-			$$('code.hljs *', container).filter(element => ['hljs-comment', 'hljs-string', 'hljs-regexp'].indexOf(element.className) === -1).map(element => [...element.childNodes]).flat().filter(node => node.tagName === undefined).forEach(node => {
+			$$('code.hljs, code.hljs *', container).filter(element => ['hljs-comment', 'hljs-string', 'hljs-regexp'].indexOf(element.className) === -1).map(element => [...element.childNodes]).flat().filter(node => node.tagName === undefined).forEach(node => {
 				var span = $e('span');
-				span.innerHTML = node.textContent.replace(/([()\[\]{}:;=+\-*/.,!<>|^&?%@~])/g, '<span class="hljs-mark">$1</span>');
+				span.innerHTML = node.textContent.replace(/([()[\]{}:;=+\-*/.,!<>|^&?%@~])/g, '<span class="hljs-mark">$1</span>');
 				node.parentElement.insertBefore(span, node);
 				node.remove();
 			});
@@ -117,8 +130,9 @@ var dataLoaded = () => {};
 		refreshGet();
 		main.innerHTML = '';
 		document.title = `${TITLE} - ${$_GET['page'][0].toUpperCase()}${$_GET['page'].split('').slice(1).join('')}`;
-		generatePage();
+		searchInput.value = '';
 		slidesPlayerBox.innerHTML = '';
+		generatePage();
 	}
 	document.title = $_GET['page'] ? `${TITLE} - ${$_GET['page'][0].toUpperCase()}${$_GET['page'].split('').slice(1).join('')}` : `${TITLE} - Home`;
 	$$('[data-href]').forEach(element => element.addEventListener('click', function(){
@@ -190,8 +204,8 @@ var dataLoaded = () => {};
 	
 	$('#rssUrlCopy').addEventListener('click', () => {
 		navigator.clipboard.writeText(`${location.origin}${location.pathname.replace(/(\/|\\).[^\/\\]*\.html/g, '')}/rss`).then(
-			() => {alert('Copied RSS URL to clipboard.');}, 
-			() => {alert('RSS url copy failed, unable to write to clipboard.');}
+			() => {alert('Copied RSS URL to clipboard.', 'compleat');}, 
+			() => {alert('RSS url copy failed, unable to write to clipboard.', 'error');}
 		);
 	});
 
@@ -275,8 +289,18 @@ var dataLoaded = () => {};
 	}
 
 	let generateFilterPageDone = false
+	const searchInput = $('#searchInput');
 	function generateFilterPage(){
 		if(generateFilterPageDone) return;
+		if(searchInput){
+			searchInput.addEventListener('keydown', event => {
+				if(event.key == 'Enter'){
+					var targetUrl = `?page=articles&search=${searchInput.value}`;
+					if(event.ctrlKey) window.open(targetUrl, '_blank');
+					else goto(targetUrl);
+				}
+			});
+		}
 		if(data?.article?.archives){
 			let archiveButtons = $('#archiveButtons');
 			if(archiveButtons){
@@ -372,17 +396,6 @@ var dataLoaded = () => {};
 							cover.style.setProperty('--bgi', `url('${styleToTopPath}/${articleData.cover}')`);
 							article.appendChild(cover);
 						}
-						if(articleData.category){
-							let category = $e('p');
-							category.className = 'category';
-							setCategoryColorProperty(category, articleData.category);
-							category.innerText = articleData.category;
-							category.addEventListener('click', event => {
-								event.stopPropagation();
-								goto(`?page=articles&category=${articleData.category}`);
-							});
-							article.appendChild(category);
-						}
 						title.className = 'title';
 						title.innerText = articleData.title || articleData.path;
 						article.appendChild(title);
@@ -400,6 +413,17 @@ var dataLoaded = () => {};
 						readingTime.innerText = articleData.readingTime;
 						info.appendChild(readingTime);
 						article.appendChild(info);
+						if(articleData.category){
+							let category = $e('p');
+							category.className = 'category';
+							setCategoryColorProperty(category, articleData.category);
+							category.innerText = articleData.category;
+							category.addEventListener('click', event => {
+								event.stopPropagation();
+								goto(`?page=articles&category=${articleData.category}`);
+							});
+							article.appendChild(category);
+						}
 						main.appendChild(article);
 	
 						let listItem = $e('li');
@@ -457,14 +481,6 @@ var dataLoaded = () => {};
 							cover.style.setProperty('--bgi', `url('${styleToTopPath}/${articleData.cover}')`);
 							article.appendChild(cover);
 						}
-						if(articleData.category){
-							let category = $e('p');
-							category.className = 'category';
-							setCategoryColorProperty(category, articleData.category);
-							category.innerText = articleData.category;
-							category.addEventListener('click', () => {goto(`?page=articles&category=${articleData.category}`);});
-							article.appendChild(category);
-						}
 						title.className = 'title';
 						title.innerText = articleData.title || articleData.path;
 						titleBox.appendChild(title);
@@ -500,6 +516,14 @@ var dataLoaded = () => {};
 							likerFrame.className = 'likerFrame';
 							likerFrame.src = `https://button.like.co/in/embed/${LIKER_ACCOUNT}/button/?referrer=${encodeURI(location.href)}`;
 							article.appendChild(likerFrame);
+						}
+						if(articleData.category){
+							let category = $e('p');
+							category.className = 'category';
+							setCategoryColorProperty(category, articleData.category);
+							category.innerText = articleData.category;
+							category.addEventListener('click', () => {goto(`?page=articles&category=${articleData.category}`);});
+							article.appendChild(category);
 						}
 						main.appendChild(article);
 					}
@@ -612,7 +636,23 @@ var dataLoaded = () => {};
 	
 					let articleDatas = data.article.articleDatas;
 					let useFilter = false;
-					if($_GET['archive']){
+					let keywordRegExp;
+					if($_GET['search']){
+						searchInput.value = $_GET['search'];
+						searchInput.focus({preventScroll: true});
+						let get_keywordList = decodeURI($_GET['search']).replace(/ *, */g, ' ').split(/ +/g);
+						keywordRegExp = new RegExp('('+decodeURI($_GET['search']).replace(/ *, */g, ' ').split(/ +/g).map(keyword => '('+keyword.replace(/[()[\]{}\\\/\|\-\+]/g, '\\$1')+')').join('|')+')', 'g');
+						articleDatas = articleDatas.filter(articleData => {
+							for(let keyword of get_keywordList){
+								if(!articleData?.title?.includes(keyword) && !articleData?.description?.includes(keyword)){
+									return false;
+								}
+							}
+							return true;
+						});
+						useFilter = true;
+					}
+					else if($_GET['archive']){
 						articleDatas = articleDatas.filter(articleData => articleData.archive == $_GET['archive']);
 						useFilter = true;
 					}
@@ -654,7 +694,7 @@ var dataLoaded = () => {};
 						filterBar.className = 'filterBar';
 						setCategoryColorProperty(filterBar, $_GET['category']);
 						main.appendChild(filterBar);
-						[['archive', $_GET['archive']], ['category', $_GET['category']], ['tags', $_GET['tags']]].forEach(data => {
+						[['search', $_GET['search']], ['archive', $_GET['archive']], ['category', $_GET['category']], ['tags', $_GET['tags']]].forEach(data => {
 							if(data[1] == undefined) return;
 							let filterBox = $e('div'), 
 								filterTitle = $e('h2'), 
@@ -688,7 +728,8 @@ var dataLoaded = () => {};
 							}
 						});
 						title.className = 'title';
-						title.innerText = articleData.title || articleData.path;
+						if($_GET['search'] && keywordRegExp) title.innerHTML = (articleData.title || articleData.path).replace(keywordRegExp, '<mark>$1</mark>');
+						else title.innerText = articleData.title || articleData.path;
 						article.appendChild(title);
 						info.className = 'info';
 						publishedTime.className = 'publishedTime';

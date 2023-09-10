@@ -13,15 +13,17 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Alanwu's Blog" />
 	<meta property="og:description" content="I love Izumi Sagiri." />
-	<meta property="og:image" content="data/siteCover.jpg" />
+	<meta property="og:image" content="https://alanwu-9582.github.io/Alanwu9582-blog/data/siteCover.jpg" />
 	<meta property="og:locale" content="zh-TW" />
 	<!-- Google Meta Tag -->
 	<meta name="googlebot-news" content="none" />
 	<!--  Twitter Meta Tag -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@XxAlanXDxX" />
 	<meta name="twitter:creator" content="@XxAlanXDxX" />
-	<meta name="twitter:image" content="data/siteCover.jpg" />
+	<meta name="twitter:site" content="@XxAlanXDxX" />
+	<meta name="twitter:image" content="https://alanwu-9582.github.io/Alanwu9582-blog/data/siteCover.jpg" />
+	<meta name="twitter:title" content="Alanwu's Blog" />
+	<meta name="twitter:description" content="I love Izumi Sagiri." />
 
 	<title>Alanwu's Blog</title>
 	<base target="_blank" rel="noreferrer noopener" />
@@ -32,11 +34,13 @@
 	<link rel="prefetch" href="data/portfolio.json" />
 	<link id="mainCss" rel="stylesheet" href="public/style/main.css" />
 	<link rel="stylesheet" href="public/style/clickEffect.css" />
+	<link rel="stylesheet" href="public/style/floatAlert.css" />
 	<link rel="stylesheet" href="public/style/articleContent.css" />
 	<link rel="stylesheet" href="custom_alanwu/style/custom.css" />
 	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Alanwu's Blog" href=".rss" />
 	<script src="public/script/basic.js"></script>
 	<script src="public/script/clickAnimation.js"></script>
+	<script src="public/script/floatAlert.js"></script>
 	<script src="public/script/bgAnimation.js"></script>
 	<!-- <script src="public/script/net_npm_marked_marked.min.js"></script> -->
 	<script src="public/script/slides.js"></script>
@@ -51,9 +55,9 @@
 		if(globalThis.TITLE === undefined) globalThis.TITLE = 'Blog';
 		const CUSTOM_DIR_PATH = `custom_alanwu`;
 		const CATEGORY_COLORS = {
-			'programming': {bright: `#c5d7c1`, dark: `#608857`}, 
-			'tools': {bright: `#c0cdd8`, dark: `#55738b`}, 
-			'tips': {bright: `#d6ccc2`, dark: `#846d58`}, 
+			'programming': {bright: `197, 215, 193`, dark: `96, 136, 87`}, 
+			'tools': {bright: `192, 205, 216`, dark: `85, 115, 139`}, 
+			'tips': {bright: `214, 204, 194`, dark: `132, 109, 88`}, 
 		};
 	</script>
 </head>
@@ -64,6 +68,7 @@
 			<input type="radio" name="pageRadio" id="pageRadio-filter">
 			<label for="pageRadio-filter">Filter
 				<div class="page">
+					<h2>Search</h2><div id="searchBox" class="buttons"><input id="searchInput" type="text"></div>
 					<h2>Archives</h2><div id="archiveButtons" class="buttons"><!-- <button>2023</button> --></div>
 					<h2>Categories</h2><div id="categoryButtons" class="buttons"><!-- <button>tutorial</button> --></div>
 					<h2>Tags</h2><div id="tagButtons" class="buttons"><!-- <button>c++</button> --></div>
@@ -144,6 +149,7 @@
 			</div>
 		</div>
 	</div>
+	<div id="alerts"></div>
 	<div id="effects"></div>
 	<script src="public/script/loadData.js"></script>
 	<script src="public/script/main.js"></script>

@@ -1,6 +1,6 @@
 .ClickAnimation_animationElement {
-	--x: ;
-	--y: ;
+	--x: unset;
+	--y: unset;
 	--size: 10vw;
 	width: var(--size);
 	height: var(--size);

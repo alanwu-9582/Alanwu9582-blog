@@ -13,16 +13,18 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="<?=title?>" />
 	<meta property="og:description" content="<?=description?>" />
-	<meta property="og:image" content="data/siteCover.jpg" />
+	<meta property="og:image" content="<?=siteUrl?>/data/siteCover.jpg" />
 	<meta property="og:locale" content="<?=language?>" />
 	<!-- Google Meta Tag -->
 	<meta name="googlebot-news" content="none" />
 	<meta name="google-site-verification" content="<?=google.siteVerification?>" />
 	<!--  Twitter Meta Tag -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="<?=twitter.site?>" />
 	<meta name="twitter:creator" content="<?=twitter.creator?>" />
-	<meta name="twitter:image" content="data/siteCover.jpg" />
+	<meta name="twitter:site" content="<?=twitter.site?>" />
+	<meta name="twitter:image" content="<?=siteUrl?>/data/siteCover.jpg" />
+	<meta name="twitter:title" content="<?=title?>" />
+	<meta name="twitter:description" content="<?=description?>" />
 
 	<title><?=title?></title>
 	<base target="_blank" rel="noreferrer noopener" />
@@ -33,11 +35,13 @@
 	<link rel="prefetch" href="data/portfolio.json" />
 	<link id="mainCss" rel="stylesheet" href="public/style/main.css" />
 	<link rel="stylesheet" href="public/style/clickEffect.css" />
+	<link rel="stylesheet" href="public/style/floatAlert.css" />
 	<link rel="stylesheet" href="public/style/articleContent.css" />
 	<link rel="stylesheet" href="<?=customDirPath?>/style/custom.css" />
 	<link rel="alternate" type="application/rss+xml" title="RSS Feed for <?=title?>" href=".rss" />
 	<script src="public/script/basic.js"></script>
 	<script src="public/script/clickAnimation.js"></script>
+	<script src="public/script/floatAlert.js"></script>
 	<script src="public/script/bgAnimation.js"></script>
 	<!-- <script src="public/script/net_npm_marked_marked.min.js"></script> -->
 	<script src="public/script/slides.js"></script>
@@ -64,6 +68,7 @@
 			<input type="radio" name="pageRadio" id="pageRadio-filter">
 			<label for="pageRadio-filter"><?=pages.filter.text?>
 				<div class="page">
+					<h2><?=pages.filter.search?></h2><div id="searchBox" class="buttons"><input id="searchInput" type="text"></div>
 					<h2><?=pages.filter.archives?></h2><div id="archiveButtons" class="buttons"><!-- <button>2023</button> --></div>
 					<h2><?=pages.filter.categories?></h2><div id="categoryButtons" class="buttons"><!-- <button>tutorial</button> --></div>
 					<h2><?=pages.filter.tags?></h2><div id="tagButtons" class="buttons"><!-- <button>c++</button> --></div>
@@ -142,6 +147,7 @@
 			</div>
 		</div>
 	</div>
+	<div id="alerts"></div>
 	<div id="effects"></div>
 	<script src="public/script/loadData.js"></script>
 	<script src="public/script/main.js"></script>
