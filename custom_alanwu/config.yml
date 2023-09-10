@@ -52,6 +52,7 @@ switchesAmount: 3
 pages: 
   filter:
     text: Filter
+    search: Search
     archives: Archives
     categories: Categories
     tags: Tags
@@ -61,15 +62,15 @@ pages:
 category:
   - name: programming
     color:
-      bright: '#c5d7c1'
-      dark: '#608857'
+      bright: '197, 215, 193'
+      dark: '96, 136, 87'
   - name: tools
     color:
-      bright: '#c0cdd8'
-      dark: '#55738b'
+      bright: '192, 205, 216'
+      dark: '85, 115, 139'
   - name: tips
     color:
-      bright: '#d6ccc2'
-      dark: '#846d58'
+      bright: '214, 204, 194'
+      dark: '132, 109, 88'
     
 skinPath: image/configImage/grandmaster8787_mcskin.png

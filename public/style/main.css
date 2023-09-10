@@ -1,6 +1,6 @@
 * {
-	--category-colorBright: ;
-	--category-colorDark: ;
+	--category-colorBright: unset;
+	--category-colorDark: unset;
 	--category-color: var(--category-colorBright);
 	margin: 0px;
 	padding: 0px;
@@ -16,7 +16,7 @@
 	--category-color: var(--category-colorDark);
 }
 *::-webkit-scrollbar {
-	--scrollbar-size: 0.5vw;
+	--scrollbar-size: 0.1vw;
     padding: 0vw;
     width: var(--scrollbar-size);
     height: var(--scrollbar-size);
@@ -28,20 +28,15 @@
     border-radius: 100vw;
     margin: 0px;
 }
-*::-webkit-scrollbar-thumb:hover {
-	background-color: #666666b7;
-    border-radius: 100vw;
-    margin: 0px;
-}
 
 :root {
 	--mainColor: #ffffff;
 	--scrollBar-backgroundColor: #00000000;
-	--scrollThumb-backgroundColor: #00000000;
+	--scrollThumb-backgroundColor: #00000055;
 	--body-backgroundColor: #ffffff;
 	--header-backgroundColor: #00000000;
 	--badge-backgroundColor: #ffffff88;
-	--box-backgroundColor: #efefef;
+	--box-backgroundColor: #f0f0f0;
 	--text-color1: #000000;
 	--text-color2: #00000088;
 	--text-color3: #00000077;
@@ -50,18 +45,18 @@
 	--labelHovered-background: #00000011;
 	--aside-borderColor: #00000000;
 	--defaultCategory-color: #c1c1c1;
+	--searchMark-background: #c9e7f5;
 	--tabIcon-filter: grayscale(1) brightness(0);
 	--infoIcon-filter: grayscale(1) brightness(0) opacity(0.5);
 }
-
 :root[theme="dark"] {
-	--mainColor: #00000000;
-	--scrollBar-backgroundColor: #00000000
+	--mainColor: #000000;
+	--scrollBar-backgroundColor: #00000000;
 	--scrollThumb-backgroundColor: #ffffff55;
 	--body-backgroundColor: #3d3d3d;
-	--header-backgroundColor: #17171788;
+	--header-backgroundColor: #00000088;
 	--badge-backgroundColor: #00000088;
-	--box-backgroundColor: #505050;
+	--box-backgroundColor: #474747;
 	--text-color1: #ffffff;
 	--text-color2: #ffffff88;
 	--text-color3: #ffffff77;
@@ -70,31 +65,10 @@
 	--labelHovered-background: #ffffff11;
 	--aside-borderColor: #ffffff55;
 	--defaultCategory-color: #787878;
+	--searchMark-background: #516d7b;
 	--tabIcon-filter: grayscale(1) brightness(100);
 	--infoIcon-filter: grayscale(1) brightness(100) opacity(0.5);
 }
-
-/* theme="frc8725" */
-/* :root[theme="dark"] {
-	--mainColor: #00000000;
-	--scrollBar-backgroundColor: #00000000
-	--scrollThumb-backgroundColor: #ffffff55;
-	--body-backgroundColor: #2f2f2f;
-	--header-backgroundColor: #f9872ca0;
-	--badge-backgroundColor: #00000088;
-	--box-backgroundColor: #505050;
-	--text-color1: #ffffff;
-	--text-color2: #ffffff88;
-	--text-color3: #ffffff77;
-	--shadowColor: #000000;
-	--tabHovered-background: #ffffff33;
-	--labelHovered-background: #ffffff11;
-	--aside-borderColor: #ffffff55;
-	--defaultCategory-color: #787878;
-	--tabIcon-filter: grayscale(1) brightness(100);
-	--infoIcon-filter: grayscale(1) brightness(100) opacity(0.5);
-} */
-
 *::-webkit-scrollbar {
 	background-color: var(--scrollBar-backgroundColor);
 }
@@ -197,7 +171,7 @@ header > * {
 	border-style: solid;
 	border-width: 0.1vw;
 	border-radius: 0.5vw;
-	/* box-shadow: 0px 0px 5px 0px var(--shadowColor); */
+	box-shadow: 0px 0px 5px 0px var(--shadowColor);
 	opacity: 0;
 	/* z-index: 999; */
 	pointer-events: none;
@@ -219,12 +193,11 @@ header > * {
 	font-weight: normal;
 	text-align: center;
 }
-
 #tabs {
 	--tabsAmount: 3;
 	--switchesAmount: 1;
-	--tab-height: 2.5vw;
-	--tabIcon-height: 1.25vw;
+	--tab-height: 3vw;
+	--tabIcon-height: 1.5vw;
 	--tabButton-paddingY: 1vw;
 	--tabs-height: calc(100vh - 10vw - (var(--avatar-size) + var(--badge-size)/2) - 3vw - 4vw) !important;
 	width: 100%;
@@ -232,7 +205,6 @@ header > * {
 	overflow-x: hidden;
 	overflow-y: auto;
 }
-
 #tabs li {
 	list-style-type: none;
 	width: 100%;
@@ -387,6 +359,16 @@ aside[visible] {
 	font-size: 1.8vw;
 	font-weight: bold;
 }
+#pageSwitcher .page input {
+	padding: 0.3vw 0.8vw;
+	width: 100%;
+	color: var(--text-color1);
+    font-size: 1.5vw;
+    font-weight: normal;
+	border-radius: 0.5vw;
+	background-color: var(--box-backgroundColor);
+	box-shadow: 0px 0px 8px 0px var(--shadowColor);
+}
 #pageSwitcher .page ol {
 	margin: 0px 0px 0px 1vw;
 	list-style-type: none;
@@ -418,48 +400,13 @@ aside[visible] {
     font-weight: normal;
     background-color: var(--box-backgroundColor);
     border-radius: 0.5vw;
-	/* box-shadow: 0px 0px 8px 0px var(--shadowColor); */
+	box-shadow: 0px 0px 8px 0px var(--shadowColor);
 	cursor: pointer;
 }
 #pageSwitcher .page #categoryButtons.buttons > button {
-	background-color: var(--box-backgroundColor);
-	position: relative;
-	margin: 0;
-	outline: none;
-	text-decoration: none;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	border: none;
-	border-radius: 0.5vw;
-	z-index: 0;
-	overflow: hidden;
+	background-color: unset;
+	background: linear-gradient(150deg, var(--box-backgroundColor) 60%, var(--category-color) 80%);
 }
-  
-  #pageSwitcher .page #categoryButtons.buttons > button::before,
-  #pageSwitcher .page #categoryButtons.buttons > button::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	background: var(--category-color);
-	opacity: 0.4;
-	transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
-	z-index: -1;
-  }
-  
-  #pageSwitcher .page #categoryButtons.buttons > button::before {
-	transform: translate3d(50%, 0, 0) scale(0.8);
-  }
-  
-  #pageSwitcher .page #categoryButtons.buttons > button::after {
-	transform: translate(50%, 0) scale(1.2);
-  }
-  
 
 main {
 	--mw: calc((100vw - var(--header-width) - var(--aside-width) - 2vw)/100);
@@ -485,7 +432,7 @@ article {
 	position: relative;
 	background-color: var(--box-backgroundColor);
 	border-radius: 1vw;
-	/* box-shadow: 0px 0px 8px 0px var(--shadowColor); */
+	box-shadow: 0px 0px 8px 0px var(--shadowColor);
 	overflow: visible;
 }
 article.row {
@@ -509,13 +456,13 @@ article.closed * {
 	cursor: pointer;
 }
 article > .cover {
-	--bgi: ;
+	--bgi: unset;
 	margin: 1vw 0px 0px 0px;
 	height: 20vw;
     width: 100%;
 	border-radius: 1vw 1vw 0px 0px;
     background-image: var(--bgi);
-	/* box-shadow: 0px 0px 8px 0px var(--shadowColor) inset; */
+	box-shadow: 0px 0px 8px 0px var(--shadowColor) inset;
 }
 article > .category {
 	padding: 0.5vw;
@@ -526,7 +473,7 @@ article > .category {
 	font-size: 1.4vw;
 	background-color: var(--category-color);
 	border-radius: 0.5vw;
-	/* box-shadow: 0px 0px 10px 0px var(--shadowColor); */
+	box-shadow: 0px 0px 10px 0px var(--shadowColor);
 	transform: rotateZ(5deg);
 	/* z-index: 1; */
 	cursor: pointer !important;
@@ -559,7 +506,7 @@ article.row > .info {
 	margin: 0px 0px 0.5vw 0px;
 }
 article .info > span {
-	--bgi: ;
+	--bgi: unset;
 	--backgroundSize: 1.2vw;
 	margin: 0px 1vw 0px 0px;
 	padding: 0px 0px 0px 2vw;
@@ -575,6 +522,10 @@ article .info > span.publishedTime {
 }
 article .info > span.readingTime {
 	--bgi: url('../image/templateIcon/infoIcon-readingTime.svg');
+}
+article.row :where(.title, .description) mark {
+	color: inherit;
+	background: var(--searchMark-background);
 }
 article > .content {
 	width: 100%;
@@ -672,7 +623,7 @@ article > .content {
 	overflow: hidden;
 }
 .portfolioBox > div .cover {
-	--bgi: ;
+	--bgi: unset;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -781,7 +732,7 @@ article > .content {
 	margin: 1vw;
 }
 .articlePageSwitcher > * {
-	--bgi: ;
+	--bgi: unset;
 	width: 3vw;
 	height: 3vw;
 	background-color: var(--labelHovered-background);
@@ -911,9 +862,9 @@ article .likerFrame {
 	position: static;
 }
 #slidesPlayer > .box .slides {
-	--width: ;
-	--height: ;
-	--scale: ;
+	--width: unset;
+	--height: unset;
+	--scale: unset;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -950,7 +901,7 @@ article .likerFrame {
 	gap: 1vw;
 }
 #slidesThemeSelector > button {
-	--bgc: ;
+	--bgc: unset;
 	--size: 2.5vw;
 	width: var(--size);
 	height: var(--size);
@@ -961,7 +912,7 @@ article .likerFrame {
 	border-color: black;
 }
 #slidesControlButtons > button {
-	--bgi: ;
+	--bgi: unset;
 	--size: 2.5vw;
 	width: var(--size);
 	height: var(--size);
@@ -1279,6 +1230,18 @@ article .likerFrame {
 }
 #slidesPlayer :where(.language-text, .language-txt) {
 	color: #dcdfe4 !important;
+}
+
+#alerts {
+	--alert-width: 30vw;
+	--alert-height: 5vw;
+	width: calc(var(--alert-width) + 2vw);
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	pointer-events: none;
+	/* z-index: 14; */
 }
 
 #effects {

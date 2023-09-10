@@ -403,42 +403,90 @@ async function main(){
     function sleep(miniSec){return new Promise((resolve, reject) => {
         setTimeout(resolve, miniSec);
     });}
+    clickAniList = [
+        async function(){ // half squat
+            const ANI_LENGTH = 0.5e3;
+            const FRAME_AMOUNT = 50;
+            clickAni_playing = true;
+            let aniMatrix_body = glMatrix.mat4.create();
+            glMatrix.mat4.translate(aniMatrix_body, aniMatrix_body, [0, 4-headWidth*5/4, -10]);
+            glMatrix.mat4.rotateX(aniMatrix_body, aniMatrix_body, Math.PI/4/FRAME_AMOUNT);
+            glMatrix.mat4.translate(aniMatrix_body, aniMatrix_body, [0, 0, 1/FRAME_AMOUNT]);
+            glMatrix.mat4.translate(aniMatrix_body, aniMatrix_body, [0, 4-headWidth*5/4, -10].map(n => -n));
+            let aniMatrix_head = glMatrix.mat4.create();
+            glMatrix.mat4.translate(aniMatrix_head, aniMatrix_head, [0, 4, -10]);
+            glMatrix.mat4.rotateY(aniMatrix_head, aniMatrix_head, -Math.PI/8 + RY*0.1);
+            glMatrix.mat4.translate(aniMatrix_head, aniMatrix_head, [0, -1/FRAME_AMOUNT, 2.5/FRAME_AMOUNT]);
+            glMatrix.mat4.rotateY(aniMatrix_head, aniMatrix_head, -(-Math.PI/8 + RY*0.1));
+            glMatrix.mat4.translate(aniMatrix_head, aniMatrix_head, [0, 4, -10].map(n => -n));
+    
+            for(let i = 0; i < FRAME_AMOUNT; i++){
+                glMatrix.mat4.multiply(body.matrix, aniMatrix_body, body.matrix);
+                glMatrix.mat4.multiply(leftArm.matrix, aniMatrix_body, leftArm.matrix);
+                glMatrix.mat4.multiply(rightArm.matrix, aniMatrix_body, rightArm.matrix);
+                glMatrix.mat4.multiply(head.matrix, aniMatrix_head, head.matrix);
+                postureChanged = true;
+                await sleep(ANI_LENGTH/FRAME_AMOUNT/2);
+            }
+            glMatrix.mat4.invert(aniMatrix_body, aniMatrix_body);
+            glMatrix.mat4.invert(aniMatrix_head, aniMatrix_head);
+            for(let i = 0; i < FRAME_AMOUNT; i++){
+                glMatrix.mat4.multiply(body.matrix, aniMatrix_body, body.matrix);
+                glMatrix.mat4.multiply(leftArm.matrix, aniMatrix_body, leftArm.matrix);
+                glMatrix.mat4.multiply(rightArm.matrix, aniMatrix_body, rightArm.matrix);
+                glMatrix.mat4.multiply(head.matrix, aniMatrix_head, head.matrix);
+                postureChanged = true;
+                await sleep(ANI_LENGTH/FRAME_AMOUNT/2);
+            }
+    
+            clickAni_playing = false;
+        }, 
+        async function(){ // wave hand
+            const ANI_LENGTH = 0.5e3;
+            const FRAME_AMOUNT = 50;
+            clickAni_playing = true;
+            let aniMatrix_rightArm = glMatrix.mat4.create();
+            glMatrix.mat4.translate(aniMatrix_rightArm, aniMatrix_rightArm, [-headWidth*3/4, 4-headWidth*5/4 + headWidth/2, -10]);
+            glMatrix.mat4.rotateZ(aniMatrix_rightArm, aniMatrix_rightArm, -Math.PI*5/6/FRAME_AMOUNT);
+            glMatrix.mat4.translate(aniMatrix_rightArm, aniMatrix_rightArm, [-headWidth*3/4, 4-headWidth*5/4 + headWidth/2, -10].map(n => -n));
+            let aniMatrix_rightArm2 = glMatrix.mat4.create();
+            glMatrix.mat4.translate(aniMatrix_rightArm2, aniMatrix_rightArm2, [-headWidth*3/4, 4-headWidth*5/4 + headWidth/2, -10]);
+            glMatrix.mat4.rotateZ(aniMatrix_rightArm2, aniMatrix_rightArm2, -Math.PI*1/6/FRAME_AMOUNT);
+            glMatrix.mat4.translate(aniMatrix_rightArm2, aniMatrix_rightArm2, [-headWidth*3/4, 4-headWidth*5/4 + headWidth/2, -10].map(n => -n));
+    
+            for(let i = 0; i < FRAME_AMOUNT; i++){
+                glMatrix.mat4.multiply(rightArm.matrix, aniMatrix_rightArm, rightArm.matrix);
+                postureChanged = true;
+                await sleep(ANI_LENGTH/FRAME_AMOUNT*0.3);
+            }
+    
+            for(let j = 0; j < 2; j++){
+                for(let i = 0; i < FRAME_AMOUNT; i++){
+                    glMatrix.mat4.multiply(rightArm.matrix, aniMatrix_rightArm2, rightArm.matrix);
+                    postureChanged = true;
+                    await sleep(ANI_LENGTH/FRAME_AMOUNT*0.2);
+                }
+                glMatrix.mat4.invert(aniMatrix_rightArm2, aniMatrix_rightArm2);
+                for(let i = 0; i < FRAME_AMOUNT; i++){
+                    glMatrix.mat4.multiply(rightArm.matrix, aniMatrix_rightArm2, rightArm.matrix);
+                    postureChanged = true;
+                    await sleep(ANI_LENGTH/FRAME_AMOUNT*0.2);
+                }
+                glMatrix.mat4.invert(aniMatrix_rightArm2, aniMatrix_rightArm2);
+            }
+    
+            glMatrix.mat4.invert(aniMatrix_rightArm, aniMatrix_rightArm);
+            for(let i = 0; i < FRAME_AMOUNT; i++){
+                glMatrix.mat4.multiply(rightArm.matrix, aniMatrix_rightArm, rightArm.matrix);
+                postureChanged = true;
+                await sleep(ANI_LENGTH/FRAME_AMOUNT*0.3);
+            }
+    
+            clickAni_playing = false;
+        }
+    ];
     async function clickAni(){
-        const ANI_LENGTH = 0.5e3;
-        const FRAME_AMOUNT = 50;
-        clickAni_playing = true;
-        let aniMatrix_body = glMatrix.mat4.create();
-        glMatrix.mat4.translate(aniMatrix_body, aniMatrix_body, [0, 4-headWidth*5/4, -10]);
-        glMatrix.mat4.rotateX(aniMatrix_body, aniMatrix_body, Math.PI/4/FRAME_AMOUNT);
-        glMatrix.mat4.translate(aniMatrix_body, aniMatrix_body, [0, 0, 1/FRAME_AMOUNT]);
-        glMatrix.mat4.translate(aniMatrix_body, aniMatrix_body, [0, 4-headWidth*5/4, -10].map(n => -n));
-        let aniMatrix_head = glMatrix.mat4.create();
-        glMatrix.mat4.translate(aniMatrix_head, aniMatrix_head, [0, 4, -10]);
-        glMatrix.mat4.rotateY(aniMatrix_head, aniMatrix_head, -Math.PI/8 + RY*0.1);
-        glMatrix.mat4.translate(aniMatrix_head, aniMatrix_head, [0, -1/FRAME_AMOUNT, 2.5/FRAME_AMOUNT]);
-        glMatrix.mat4.rotateY(aniMatrix_head, aniMatrix_head, -(-Math.PI/8 + RY*0.1));
-        glMatrix.mat4.translate(aniMatrix_head, aniMatrix_head, [0, 4, -10].map(n => -n));
-
-        for(let i = 0; i < FRAME_AMOUNT; i++){
-            glMatrix.mat4.multiply(body.matrix, aniMatrix_body, body.matrix);
-            glMatrix.mat4.multiply(leftArm.matrix, aniMatrix_body, leftArm.matrix);
-            glMatrix.mat4.multiply(rightArm.matrix, aniMatrix_body, rightArm.matrix);
-            glMatrix.mat4.multiply(head.matrix, aniMatrix_head, head.matrix);
-            postureChanged = true;
-            await sleep(ANI_LENGTH/FRAME_AMOUNT/2);
-        }
-        glMatrix.mat4.invert(aniMatrix_body, aniMatrix_body);
-        glMatrix.mat4.invert(aniMatrix_head, aniMatrix_head);
-        for(let i = 0; i < FRAME_AMOUNT; i++){
-            glMatrix.mat4.multiply(body.matrix, aniMatrix_body, body.matrix);
-            glMatrix.mat4.multiply(leftArm.matrix, aniMatrix_body, leftArm.matrix);
-            glMatrix.mat4.multiply(rightArm.matrix, aniMatrix_body, rightArm.matrix);
-            glMatrix.mat4.multiply(head.matrix, aniMatrix_head, head.matrix);
-            postureChanged = true;
-            await sleep(ANI_LENGTH/FRAME_AMOUNT/2);
-        }
-
-        clickAni_playing = false;
+        await clickAniList[Math.floor(Math.random()*clickAniList.length)]();
     }
     window.addEventListener('click', event => {
         let boundingRect = cvs.getBoundingClientRect();
