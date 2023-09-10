@@ -130,8 +130,9 @@ var dataLoaded = () => {};
 		refreshGet();
 		main.innerHTML = '';
 		document.title = `${TITLE} - ${$_GET['page'][0].toUpperCase()}${$_GET['page'].split('').slice(1).join('')}`;
-		generatePage();
+		searchInput.value = '';
 		slidesPlayerBox.innerHTML = '';
+		generatePage();
 	}
 	document.title = $_GET['page'] ? `${TITLE} - ${$_GET['page'][0].toUpperCase()}${$_GET['page'].split('').slice(1).join('')}` : `${TITLE} - Home`;
 	$$('[data-href]').forEach(element => element.addEventListener('click', function(){
@@ -288,9 +289,9 @@ var dataLoaded = () => {};
 	}
 
 	let generateFilterPageDone = false
+	const searchInput = $('#searchInput');
 	function generateFilterPage(){
 		if(generateFilterPageDone) return;
-		let searchInput = $('#searchInput');
 		if(searchInput){
 			searchInput.addEventListener('keydown', event => {
 				if(event.key == 'Enter'){
@@ -637,6 +638,8 @@ var dataLoaded = () => {};
 					let useFilter = false;
 					let keywordRegExp;
 					if($_GET['search']){
+						searchInput.value = $_GET['search'];
+						searchInput.focus({preventScroll: true});
 						let get_keywordList = decodeURI($_GET['search']).replace(/ *, */g, ' ').split(/ +/g);
 						keywordRegExp = new RegExp('('+decodeURI($_GET['search']).replace(/ *, */g, ' ').split(/ +/g).map(keyword => '('+keyword.replace(/[()[\]{}\\\/\|\-\+]/g, '\\$1')+')').join('|')+')', 'g');
 						articleDatas = articleDatas.filter(articleData => {
