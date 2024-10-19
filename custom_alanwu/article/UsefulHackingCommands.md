@@ -3,7 +3,7 @@
 <!-- category: Hacking -->
 <!-- tags: programming -->
 <!-- published time: 2024/10/16 -->
-<!-- cover: <?=customDirPath?>/image/articleCover/frc8725_software_edu_cover.jpg -->
+<!-- cover: <?=customDirPath?>/image/articleCover/Useful_Hacking_Command_cover.png -->
 
 # Useful Hacking Commands
 這裡有一些有可能用到的指令，這些指令可以用來偵測網路、掃描網路、攻擊網路等等。

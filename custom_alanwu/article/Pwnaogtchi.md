@@ -1,5 +1,5 @@
 <!-- title: Pwnagotchi -->
-<!-- description: Pwnagotchi 簡易配置教學 -->
+<!-- description: Pwnagotchi 簡易配置教學 zh-tw -->
 <!-- category: Hacking -->
 <!-- tags: programming -->
 <!-- published time: 2024/10/18 -->
@@ -26,7 +26,7 @@ Pwnagotchi 是一種基於 A2C 的 "AI"，利用 bettercap 從周圍的 Wi-Fi �
 ### Flashing the Image
 1. 下載最新的 Pwnagotchi 韌體 (擇一, 或是其他的)：
     * [Pwnagotchi Releases](https://github.com/evilsocket/pwnagotchi/releases)
-    * [jayofelony-github](https://github.com/jayofelony/pwnagotchi) (非官方)
+    * [jayofelony-github](https://github.com/jayofelony/pwnagotchi) (非官方, 但我是用這個)
 
 2. 使用 [Balena Etcher](https://etcher.balena.io/) 將韌體燒錄到 microSD 卡中
 3. 把 microSD 卡插入 Raspberry Pi Zero W
@@ -84,7 +84,88 @@ ui.web.port = 8080
 
 ![](image/articleImage/pwnagotchi/pwnagotchi_webui.png)
 
+## Plugins
+[Pwnagotchi Plugins](https://pwnagotchi.ai/plugins/)
+
+### bluetooth tethering
+讓 Pwnagotchi 透過藍芽連接與手機連線，並使用手機的網路 
+```Bash
+sudo nano /etc/pwnagotchi/config.toml
+```
+
+1. 先至手機設定藍芽配對，並取得手機的 MAC 位址
+2. 在 Pwnagotchi 的設定檔中加入以下設定
+
+(iphone)
+```Bash
+main.plugins.bt-tether.enabled = true
+main.plugins.bt-tether.devices.ios-phone.enabled = true
+main.plugins.bt-tether.devices.ios-phone.search_order = 1
+main.plugins.bt-tether.devices.ios-phone.mac = <iphone_mac>
+main.plugins.bt-tether.devices.ios-phone.ip = "172.20.10.6"
+main.plugins.bt-tether.devices.ios-phone.netmask = 14
+main.plugins.bt-tether.devices.ios-phone.interval = 1
+main.plugins.bt-tether.devices.ios-phone.scantime = 20
+main.plugins.bt-tether.devices.ios-phone.max_tries = 0
+main.plugins.bt-tether.devices.ios-phone.share_internet = true
+main.plugins.bt-tether.devices.ios-phone.priority = 99
+```
+(android)
+```Bash
+main.plugins.bt-tether.enabled = true
+main.plugins.bt-tether.devices.android-phone.enabled = true
+main.plugins.bt-tether.devices.android-phone.search_order = 1
+main.plugins.bt-tether.devices.android-phone.mac = <android_mac>
+main.plugins.bt-tether.devices.android-phone.ip = "192.168.44.44"
+main.plugins.bt-tether.devices.android-phone.netmask = 24
+main.plugins.bt-tether.devices.android-phone.interval = 1
+main.plugins.bt-tether.devices.android-phone.scantime = 20
+main.plugins.bt-tether.devices.android-phone.max_tries = 0
+main.plugins.bt-tether.devices.android-phone.share_internet = true
+main.plugins.bt-tether.devices.android-phone.priority = 99
+```
+Pwnagotchi 會出現一個 `BT` 的符號
+* `C` 連接成功：這表示已成功連接到設備。
+* `NF` 找不到：這表示無法連接到設備（可能是因為找不到設備）。
+* `PE` 配對錯誤：這個錯誤發生在配對問題時。
+* `BE` Bnep 錯誤：這個錯誤發生在無法創建 NAP 時。
+* `AE` 地址錯誤：無法將 IP 分配給 NAP 介面。
+
+3. 儲存並退出 comfig.toml
+4. 連接至手機藍芽
+```Bash
+sudo bluetoothctl
+```
+
+```Bash
+scan on
+```
+
+當找到手機的 MAC 位址後
+```Bash
+pair <phone_mac>
+trust <phone_mac>
+```
+
+5. 重啟 Pwnagotchi
+6. 手機設定中開啟網路分享
+7. 透過手機網頁介面查看 Pwnagotchi 的狀態或是安裝 Termius(iOS) 透過 SSH 連接
+
+安裝 Termius 後，新增一個新的主機，並輸入 Pwnagotchi 的 IP 位址，帳號密碼即可連接
+* IP or Hostname: `172.20.10.6` (iphone)
+* Port: `22`
+* Username: `pi`
+* Password: `<password>`
+
 ## Useful Commands
+開啟 bettercap ui [bettercap](http://10.0.0.2/#/login) 只有在 MANU 模式下才能使用
+帳號密碼: `pwnagotchi`
+
+編輯設定檔：
+```Bash
+sudo nano /etc/pwnagotchi/config.toml
+```
+
 複製 Pwnagotchi 的檔案到本機：
 ```Bash
 scp pi@<Pwnagotchi_IP>:<file_path> <local_path> # 複製單一檔案

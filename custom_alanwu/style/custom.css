@@ -43,9 +43,13 @@
 }
 
 #pageSwitcher .page li {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#pageSwitcher .page li:hover {
+    overflow: visible;
 }
 
 article > .category {
