@@ -8,10 +8,11 @@ article > .content {
 	--selection-backgroundColor: #00000088;
 	--hr-color: black;
 	--code-background: #ffffff88;
-	--light-color: black;
+	--light-color: rgba(0, 0, 0, 0.421);
 	--blockquote-backgroundColor: #ffffff22;
 	--blockquote-borderColor: #00000055;
 }
+
 html[theme="dark"] article > .content {
 	--text-color1: #ffffff;
 	--text-color2: #e7e7e7;
@@ -22,7 +23,7 @@ html[theme="dark"] article > .content {
 	--hr-color: white;
 	--code-background: #00000088;
 	--imageAlt-background: #00000088;
-	--light-color: white;
+	--light-color: rgba(255, 255, 255, 0.451);
 	--blockquote-backgroundColor: #00000022;
 	--blockquote-borderColor: #ffffff55;
 }

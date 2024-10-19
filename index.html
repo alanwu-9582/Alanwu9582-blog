@@ -49,15 +49,12 @@
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css"> -->
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dark.min.css"> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-	<script src="public/script/gl-matrix-min.js" data-nothing="image/configImage/grandmaster8787_mcskin.png"></script>
 	<script>
 		const TITLE = `Alanwu's Blog`;
 		if(globalThis.TITLE === undefined) globalThis.TITLE = 'Blog';
 		const CUSTOM_DIR_PATH = `custom_alanwu`;
 		const CATEGORY_COLORS = {
-			'programming': {bright: `197, 215, 193`, dark: `96, 136, 87`}, 
-			'tools': {bright: `192, 205, 216`, dark: `85, 115, 139`}, 
-			'tips': {bright: `214, 204, 194`, dark: `132, 109, 88`}, 
+			'Hacking': {bright: `75, 200, 168`, dark: `61, 162, 136`}, 
 		};
 	</script>
 </head>
@@ -115,8 +112,8 @@
 		<div id="avatarBox">
 			<img id="avatar" src="custom_alanwu/image/configImage/avatar.png" alt="site avatar" />
 			<div id="badges">
-				<div data-title="FRC軟體組副組長">🦾</div>
-				<div data-title="Python、Java工程師?">👨‍💻</div>
+				<div data-title="FRC8725前軟體組副組長">🦾</div>
+				<div data-title="UWU">👨‍💻</div>
 				<div data-title=":P">👻</div>
 			</div>
 			<div id="badgeDescription"></div>
@@ -131,14 +128,13 @@
 			<div id="switches">
 				<div>
 					<li id="rssUrlCopy"><a>Copy RSS</a></li>
-					<li id="backgroundMusicSwitch" data-path="custom_alanwu/audio/休_奔.wav" data-volume="0.5"><a>BG Music</a></li>
+					<li id="backgroundMusicSwitch" data-path="custom_alanwu/audio/relax.wav" data-volume="0.5"><a>BG Music</a></li>
 					<li id="darkModeSwitch"><a>Dark Mode</a></li>
 				</div>
 			</div>
 		</ul>
 		<nav></nav>
 	</header>
-	<canvas id="character" data-path="custom_alanwu/image/configImage/grandmaster8787_mcskin.png"></canvas>
 	<div id="slidesPlayer">
 		<div class="box"></div>
 		<div class="bar">
@@ -153,6 +149,5 @@
 	<div id="effects"></div>
 	<script src="public/script/loadData.js"></script>
 	<script src="public/script/main.js"></script>
-	<script src="public/script/character.js" data-nothing="image/configImage/grandmaster8787_mcskin.png"></script>
 </body>
 </html>

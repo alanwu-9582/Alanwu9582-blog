@@ -58,7 +58,8 @@
 		align-items: center;
 		gap: calc(4*var(--mw));
 		width: var(--pageInnerWidth);
-		height: calc(var(--pageInnerHeight)*0.6);
+		height: calc(var(--pageInnerHeight)*0.8);
+		margin-top: calc(5.5*var(--mh));
 	}
 	#aboutContent .cardBox > .card {
 		--bgi: url('');
@@ -192,42 +193,17 @@
 		width: var(--pageInnerWidth);
 		height: calc(var(--pageInnerHeight)*0.1);
 		color: var(--text-color1);
-		text-shadow: calc(1*var(--mw)) calc(1*var(--mw)) calc(1*var(--mw)) #00000058;
+		text-shadow: calc(0.5*var(--mw)) calc(0.5*var(--mw)) calc(0.5*var(--mw)) #00000058;
 		font-size: calc(5*var(--mw));
 		font-family: 'Courier New', Courier, monospace;
 		text-align: center;
 	}
 	
-	#aboutContent .statsCardBox {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		align-content: center;
-		justify-content: space-around;
-		align-items: center;
-		padding: 2vw;
-		width: var(--pageInnerWidth);
-		height: calc(var(--pageInnerHeight)*0.3);
-		color: var(--text-color1);
-		text-shadow: calc(2*var(--mw)) calc(2*var(--mw)) calc(1*var(--mw)) #00000088;
-		font-size: calc(8*var(--mw));
-		font-family: 'Courier New', Courier, monospace;
-		text-align: center;
-    	opacity: 0.8;
-	}
-	#aboutContent .statsCardBox > img {
-		width: auto;
-		max-width: 30%;
-		height: 100%;
-		filter: brightness(1.2) grayscale(0);
-		transition: filter 0.6s;
-	}
 
 	@media screen and (max-width: 100vh) {
 		#aboutContent, 
 		#aboutContent #glassBox, 
 		#aboutContent .containBox, 
-		#aboutContent .statsCardBox, 
 		#aboutContent .cardBox {
 			height: auto !important;
 		}
@@ -268,19 +244,6 @@
 			height: calc(var(--pageInnerHeight)*0.2);
 		}
 
-		#aboutContent .statsCardBox {
-			flex-direction: column;
-    		flex-wrap: nowrap;
-			align-content: center;
-			align-items: center;
-		}
-		#aboutContent .statsCardBox > img {
-			margin: calc(1*var(--mw)) 0px;
-			width: 100%;
-			max-width: unset;
-			height: auto;
-			filter: brightness(1.5) grayscale(0);
-		}
 	}
 	@media screen and (min-width: 200vh) and (max-width: 300vh) {
 		#aboutContent #title {
@@ -288,22 +251,6 @@
 			position: absolute;
 			top: 0px;
 			transform: translateY(-50%);
-		}
-		#aboutContent .statsCardBox {
-			display: flex;
-			flex-direction: column;
-			flex-wrap: nowrap;
-			padding: 0px;
-			width: calc((100% - 4*var(--mw)*3)*0.2);
-			height: calc((100% - 4*var(--mw)*2)*0.9);
-			position: absolute;
-			bottom: calc(4*var(--mw));
-			left: calc(4*var(--mw));
-		}
-		#aboutContent .statsCardBox > img {
-			width: 100%;
-			max-width: unset;
-			height: auto;
 		}
 		#aboutContent .cardBox{
 			--gapX: 2%;
@@ -331,9 +278,6 @@
 			top: 0px;
 			transform: translateY(-50%);
 		}
-		#aboutContent .statsCardBox {
-			display: none;
-		}
 		#aboutContent .cardBox{
 			--gapX: 2%;
 			--gapY: 10%;
@@ -358,11 +302,6 @@
 	<div id="glassBox" class="page" display="bothCenter" material="glass">
 		<div class="containBox">
 			<h1 id="title">About Alanwu</h1>
-			<div class="statsCardBox">
-				<img src="https://github-readme-stats.vercel.app/api?username=alanwu-9582&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=onedark&locale=en&hide_border=true" alt="stats graph"  />
-				<img src="https://streak-stats.demolab.com?user=alanwu-9582&locale=en&mode=daily&theme=onedark&hide_border=true&border_radius=5" alt="streak graph"  />
-				<img src="https://github-readme-stats.vercel.app/api/top-langs?username=alanwu-9582&locale=en&hide_title=true&layout=compact&card_width=320&langs_count=5&theme=onedark&hide_border=true" alt="languages graph"  />
-			</div>
 			<div class="cardBox" display="bothCenter">
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #ff7e7e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-youtube.png');" href="https://www.youtube.com/channel/UCSc8KKDgxmsa5xwY7FjEI0w">
 					<h3>YouTube</h3>
@@ -378,11 +317,11 @@
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #666666; --bgi: url('<?=basicPath?>/image/aboutImage/logo-twitter.png');" href="https://twitter.com/XxAlanXDxX">
 					<h3>Twitter</h3>
-					<p contentkey="twitter-description">用ID來預測<br>馬斯克的行動。</p>
+					<p contentkey="twitter-description">就是個推特帳號<br>不會發推的那種</p>
 				</a>
-				<a target="_blank" class="card hrefButton" style="--shadowColor: #9bffa0; --bgi: url('<?=basicPath?>/image/aboutImage/logo-spotify.png');" href="https://open.spotify.com/user/31gobogu4v64ofjo436gpr3nhpg4">
-					<h3>Spotify</h3>
-					<p contentkey="spotify-description">聽眾帳號......嗯<br>對就是不會發歌的那種。</p>
+				<a target="_blank" class="card hrefButton" style="--shadowColor: #d03b9b; --bgi: url('<?=basicPath?>/image/aboutImage/logo-instagram.png');" href="https://open.spotify.com/user/31gobogu4v64ofjo436gpr3nhpg4">
+					<h3>Instragram</h3>
+					<p contentkey="instagram-description">沒什麼東西 :P</p>
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #ac5d1e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-frc8725.png');" href="https://frc8725misty.blogspot.com/">
 					<h3>FRC-8725</h3>
@@ -390,7 +329,7 @@
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #fff27a; --bgi: url('<?=basicPath?>/image/aboutImage/logo-photos.png');" href="https://photos.google.com/?album=alanwu" onclick="event.preventDefault();window.open('https:\/\/youtu.be/dQw4w9WgXcQ?si=aiFtJ-IFWJuDlxDU', '_blank');">
 					<h3>Photos</h3>
-					<p contentkey="twitch-description">放了一些照片<br></p>
+					<p contentkey="photo-description">放了一些照片<br></p>
 				</a>
 				<!-- 再加按鈕就會被mcskin擋到 -->
 			</div>
